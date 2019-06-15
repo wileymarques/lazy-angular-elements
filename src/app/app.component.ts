@@ -17,10 +17,7 @@ export class AppComponent implements OnInit {
   constructor(
     private injector: Injector,
     private dataHandlerService: DataHandlerService,
-  ) {
-    const lazyLoadedComponent = createCustomElement(LazyLoadedComponent, {injector});
-    customElements.define('lazy-loaded-element', lazyLoadedComponent);
-  }
+  ) { }
 
   public ngOnInit(): void {
     this.dataHandlerService.getData()
@@ -34,7 +31,15 @@ export class AppComponent implements OnInit {
     this.dataHandlerService.setData(this.data);
   }
 
-  public showLazyLoadedComponent(): void {
+  public loadLazyLoadedComponent(): void {
+    const lazyLoadedComponent = createCustomElement(
+      LazyLoadedComponent,
+      {
+        injector: this.injector,
+      }
+    );
+    customElements.define('lazy-loaded-element', lazyLoadedComponent);
+
     const lazyLoadedElementEl: NgElement & WithProperties<LazyLoadedComponent> =
       document.createElement('lazy-loaded-element') as any;
 

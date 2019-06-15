@@ -1,19 +1,25 @@
 import { Component, OnInit } from '@angular/core';
 
+import { DataHandlerService } from 'data-handler';
+
 @Component({
   selector: 'lib-lazy-loaded',
-  template: `
-    <p>
-      LazyLoaded Component works!
-    </p>
-  `,
-  styles: []
+  templateUrl: './lazy-loaded.component.html',
 })
 export class LazyLoadedComponent implements OnInit {
 
-  constructor() { }
+  public receivedData: string;
 
-  ngOnInit() {
+  constructor(
+    private dataHandlerService: DataHandlerService,
+  ) { }
+
+  public ngOnInit(): void {
+    this.dataHandlerService.getData()
+      .subscribe((newData: string) => {
+        console.log('Lazy received data', newData);
+        this.receivedData = newData;
+      });
   }
 
 }
