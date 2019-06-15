@@ -18,11 +18,11 @@
       "dom"
     ],
     "paths": {
-      "elemento": [
-        "dist/elemento"
+      "lazy-loaded-element": [
+        "dist/lazy-loaded-element"
       ],
-      "elemento/*": [
-        "dist/elemento/*"
+      "lazy-loaded-element/*": [
+        "dist/lazy-loaded-element/*"
       ]
     }
   }

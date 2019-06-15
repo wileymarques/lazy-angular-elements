@@ -1,5 +1,5 @@
 import { Component, Injector } from '@angular/core';
-import { ElementoComponent } from 'elemento';
+import { LazyLoadedComponent } from 'lazy-loaded-element';
 import { createCustomElement, NgElement, WithProperties } from '@angular/elements';
 
 @Component({
@@ -8,24 +8,20 @@ import { createCustomElement, NgElement, WithProperties } from '@angular/element
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'lazy-angular-elements';
-  mostra = false;
 
   constructor(injector: Injector) {
-    // Convert `PopupComponent` to a custom element.
-    const ElementoElement = createCustomElement(ElementoComponent, {injector});
-    // Register the custom element with the browser.
-    customElements.define('elemento-element', ElementoElement);
+    const lazyLoadedComponent = createCustomElement(LazyLoadedComponent, {injector});
+    customElements.define('lazy-loaded-element', lazyLoadedComponent);
   }
 
-  mostrar() {
+  showLazyLoadedComponent() {
     // Create element
-    const elementoEl: NgElement & WithProperties<ElementoComponent> =
-      document.createElement('elemento-element') as any;
+    const lazyLoadedElementEl: NgElement & WithProperties<LazyLoadedComponent> =
+      document.createElement('lazy-loaded-element') as any;
 
-    const aquiEl = document.getElementById('aqui');
+    const wrapperEl = document.getElementById('wrapper');
 
-    aquiEl.appendChild(elementoEl);
+    wrapperEl.appendChild(lazyLoadedElementEl);
   }
 
 }

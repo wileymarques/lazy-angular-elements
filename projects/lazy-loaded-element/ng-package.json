@@ -1,6 +1,6 @@
 {
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
-  "dest": "../../dist/elemento",
+  "dest": "../../dist/lazy-loaded-element",
   "lib": {
     "entryFile": "src/public_api.ts"
   }

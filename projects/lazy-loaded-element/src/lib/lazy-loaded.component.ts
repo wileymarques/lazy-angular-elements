@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'lib-elemento',
+  selector: 'lib-lazy-loaded',
   template: `
     <p>
-      elemento works!
+      LazyLoaded Component works!
     </p>
   `,
   styles: []
 })
-export class ElementoComponent implements OnInit {
+export class LazyLoadedComponent implements OnInit {
 
   constructor() { }
 

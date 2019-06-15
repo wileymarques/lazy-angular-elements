@@ -4,12 +4,12 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { ElementoComponent } from 'elemento';
+import { LazyLoadedComponent } from 'lazy-loaded-element';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ElementoComponent,
+    LazyLoadedComponent,
   ],
   imports: [
     BrowserModule,
@@ -17,6 +17,6 @@ import { ElementoComponent } from 'elemento';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [ElementoComponent]
+  entryComponents: [LazyLoadedComponent],
 })
 export class AppModule { }
