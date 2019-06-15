@@ -5,12 +5,12 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { LazyLoadedComponent } from 'lazy-loaded-element';
+// import { LazyLoadedComponent } from 'lazy-loaded-element';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LazyLoadedComponent,
+    // LazyLoadedComponent,
   ],
   imports: [
     BrowserModule,
@@ -19,6 +19,6 @@ import { LazyLoadedComponent } from 'lazy-loaded-element';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [LazyLoadedComponent],
+  // entryComponents: [LazyLoadedComponent],
 })
 export class AppModule { }

@@ -1,8 +1,9 @@
 import { Component, Injector, OnInit } from '@angular/core';
 import { createCustomElement, NgElement, WithProperties } from '@angular/elements';
+// import system from 'systemjs';
 
 import { DataHandlerService } from 'data-handler';
-import { LazyLoadedComponent } from 'lazy-loaded-element';
+// import { LazyLoadedComponent } from 'lazy-loaded-element';
 
 @Component({
   selector: 'app-root',
@@ -32,20 +33,36 @@ export class AppComponent implements OnInit {
   }
 
   public loadLazyLoadedComponent(): void {
-    const lazyLoadedComponent = createCustomElement(
-      LazyLoadedComponent,
-      {
-        injector: this.injector,
-      }
-    );
-    customElements.define('lazy-loaded-element', lazyLoadedComponent);
+    const lazyLoadedScriptTag = document.createElement('script');
+    lazyLoadedScriptTag.src = 'http://localhost:8080/lazy-loaded.js';
+    lazyLoadedScriptTag.onload = () => this.appendLazyLoadedElement();
+    document.head.appendChild(lazyLoadedScriptTag);
+  }
 
-    const lazyLoadedElementEl: NgElement & WithProperties<LazyLoadedComponent> =
-      document.createElement('lazy-loaded-element') as any;
-
+  public appendLazyLoadedElement(): void {
+    const lazyLoadedElementEl = document.createElement('lazy-loaded');
     const wrapperEl = document.getElementById('wrapper');
-
     wrapperEl.appendChild(lazyLoadedElementEl);
   }
+
+  // public async loadLazyLoadedComponent(): Promise<void> {
+
+  //   // const lazyLoadedModule = await import('lazy-loaded-element');
+  //   // const { LazyLoadedComponent } = lazyLoadedModule;
+
+  //   // const lazyLoadedComponent = createCustomElement(
+  //   //   LazyLoadedComponent,
+  //   //   {
+  //   //     injector: this.injector,
+  //   //   },
+  //   // );
+  //   // customElements.define('lazy-loaded-element', lazyLoadedComponent);
+
+  //   // const lazyLoadedElementEl = document.createElement('lazy-loaded-element') as any;
+
+  //   // const wrapperEl = document.getElementById('wrapper');
+
+  //   // wrapperEl.appendChild(lazyLoadedElementEl);
+  // }
 
 }

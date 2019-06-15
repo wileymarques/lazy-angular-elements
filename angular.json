@@ -188,7 +188,7 @@
       "schematics": {},
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "ngx-build-plus:build",
           "options": {
             "outputPath": "dist/lazy-loaded",
             "index": "projects/lazy-loaded/src/index.html",
@@ -233,7 +233,7 @@
           }
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "ngx-build-plus:dev-server",
           "options": {
             "browserTarget": "lazy-loaded:build"
           },
@@ -250,7 +250,7 @@
           }
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "ngx-build-plus:karma",
           "options": {
             "main": "projects/lazy-loaded/src/test.ts",
             "polyfills": "projects/lazy-loaded/src/polyfills.ts",

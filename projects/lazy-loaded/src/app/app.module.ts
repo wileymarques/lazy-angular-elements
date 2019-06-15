@@ -1,16 +1,36 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Injector } from '@angular/core';
 
 import { AppComponent } from './app.component';
+import { createCustomElement } from '@angular/elements';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  // bootstrap: [AppComponent],
+  entryComponents: [
+    AppComponent,
+  ],
 })
-export class AppModule { }
+export class AppModule {
+
+  constructor(
+    private injector: Injector,
+  ) { }
+
+  public ngDoBootstrap(): void {
+      const lazyLoadedCustomElement = createCustomElement(
+        AppComponent,
+        {
+          injector: this.injector,
+        },
+      );
+      customElements.define('lazy-loaded', lazyLoadedCustomElement);
+  }
+
+}
