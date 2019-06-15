@@ -4,7 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "npm run build:app && npm run build:le && npm run build:dh",
+    "build:app": "ng build",
     "build:le": "ng build lazy-loaded-element",
     "build:dh": "ng build data-handler",
     "test": "ng test",
