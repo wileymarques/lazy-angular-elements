@@ -32,9 +32,6 @@
             "scripts": [
               {
                 "input": "node_modules/document-register-element/build/document-register-element.js"
-              },
-              {
-                "input": "node_modules/document-register-element/build/document-register-element.js"
               }
             ]
           },
@@ -204,6 +201,134 @@
               "projects/data-handler/tsconfig.lib.json",
               "projects/data-handler/tsconfig.spec.json"
             ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "lazy-loaded": {
+      "root": "projects/lazy-loaded/",
+      "sourceRoot": "projects/lazy-loaded/src",
+      "projectType": "application",
+      "prefix": "app",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/lazy-loaded",
+            "index": "projects/lazy-loaded/src/index.html",
+            "main": "projects/lazy-loaded/src/main.ts",
+            "polyfills": "projects/lazy-loaded/src/polyfills.ts",
+            "tsConfig": "projects/lazy-loaded/tsconfig.app.json",
+            "assets": [
+              "projects/lazy-loaded/src/favicon.ico",
+              "projects/lazy-loaded/src/assets"
+            ],
+            "styles": [
+              "projects/lazy-loaded/src/styles.css"
+            ],
+            "scripts": [],
+            "es5BrowserSupport": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/lazy-loaded/src/environments/environment.ts",
+                  "with": "projects/lazy-loaded/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "lazy-loaded:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "lazy-loaded:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "lazy-loaded:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/lazy-loaded/src/test.ts",
+            "polyfills": "projects/lazy-loaded/src/polyfills.ts",
+            "tsConfig": "projects/lazy-loaded/tsconfig.spec.json",
+            "karmaConfig": "projects/lazy-loaded/karma.conf.js",
+            "styles": [
+              "projects/lazy-loaded/src/styles.css"
+            ],
+            "scripts": [],
+            "assets": [
+              "projects/lazy-loaded/src/favicon.ico",
+              "projects/lazy-loaded/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/lazy-loaded/tsconfig.app.json",
+              "projects/lazy-loaded/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "lazy-loaded-e2e": {
+      "root": "projects/lazy-loaded-e2e/",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/lazy-loaded-e2e/protractor.conf.js",
+            "devServerTarget": "lazy-loaded:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "lazy-loaded:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "projects/lazy-loaded-e2e/tsconfig.e2e.json",
             "exclude": [
               "**/node_modules/**"
             ]
