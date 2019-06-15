@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-ements": {
+    "lazy-angular-elements": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angular-ements",
+            "outputPath": "dist/lazy-angular-elements",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -68,18 +68,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular-ements:build"
+            "browserTarget": "lazy-angular-elements:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular-ements:build:production"
+              "browserTarget": "lazy-angular-elements:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-ements:build"
+            "browserTarget": "lazy-angular-elements:build"
           }
         },
         "test": {
@@ -113,7 +113,7 @@
         }
       }
     },
-    "angular-ements-e2e": {
+    "lazy-angular-elements-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -122,11 +122,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "angular-ements:serve"
+            "devServerTarget": "lazy-angular-elements:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "angular-ements:serve:production"
+              "devServerTarget": "lazy-angular-elements:serve:production"
             }
           }
         },
@@ -177,5 +177,5 @@
       }
     }
   },
-  "defaultProject": "angular-ements"
+  "defaultProject": "lazy-angular-elements"
 }

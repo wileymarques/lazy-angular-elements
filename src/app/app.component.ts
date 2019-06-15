@@ -8,7 +8,7 @@ import { createCustomElement, NgElement, WithProperties } from '@angular/element
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'angular-elements';
+  title = 'lazy-angular-elements';
   mostra = false;
 
   constructor(injector: Injector) {
