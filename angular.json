@@ -110,34 +110,6 @@
         }
       }
     },
-    "lazy-angular-elements-e2e": {
-      "root": "e2e/",
-      "projectType": "application",
-      "prefix": "",
-      "architect": {
-        "e2e": {
-          "builder": "@angular-devkit/build-angular:protractor",
-          "options": {
-            "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "lazy-angular-elements:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "lazy-angular-elements:serve:production"
-            }
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": "e2e/tsconfig.e2e.json",
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }
-      }
-    },
     "lazy-loaded-element": {
       "root": "projects/lazy-loaded-element",
       "sourceRoot": "projects/lazy-loaded-element/src",
