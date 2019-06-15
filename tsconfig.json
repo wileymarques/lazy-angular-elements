@@ -23,6 +23,12 @@
       ],
       "lazy-loaded-element/*": [
         "dist/lazy-loaded-element/*"
+      ],
+      "data-handler": [
+        "dist/data-handler"
+      ],
+      "data-handler/*": [
+        "dist/data-handler/*"
       ]
     }
   }
