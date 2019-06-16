@@ -34,7 +34,7 @@ export class AppComponent implements OnInit {
 
   public loadLazyLoadedComponent(): void {
     const lazyLoadedScriptTag = document.createElement('script');
-    lazyLoadedScriptTag.src = 'http://localhost:8080/lazy-loaded.js';
+    lazyLoadedScriptTag.src = 'http://localhost:8080/main.js';
     lazyLoadedScriptTag.onload = () => this.appendLazyLoadedElement();
     document.head.appendChild(lazyLoadedScriptTag);
   }

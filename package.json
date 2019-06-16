@@ -11,7 +11,10 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "npx-build-plus:copy-assets": "node projects/lazy-loaded/copy-wc-polyfill.js && node copy-wc-polyfill.js"
+    "npx-build-plus:copy-assets": "node projects/lazy-loaded/copy-wc-polyfill.js && node copy-wc-polyfill.js && node projects/lazy-loaded/copy-bundles.js && node copy-bundles.js",
+    "build:lazy-loaded:externals": "ng build --extra-webpack-config webpack.externals.js --prod --project lazy-loaded --single-bundle --output-hashing none",
+    "build:externals": "ng build --extra-webpack-config webpack.externals.js --prod ",
+    "build:lazy-angular-elements:externals": "ng build --extra-webpack-config webpack.externals.js --prod --project lazy-angular-elements "
   },
   "private": true,
   "dependencies": {
