@@ -28,14 +28,6 @@
             ],
             "styles": [
               "src/styles.scss"
-            ],
-            "scripts": [
-              {
-                "input": "node_modules/document-register-element/build/document-register-element.js"
-              },
-              {
-                "input": "node_modules/document-register-element/build/document-register-element.js"
-              }
             ]
           },
           "configurations": {
@@ -105,6 +97,106 @@
             "tsConfig": [
               "src/tsconfig.app.json",
               "src/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "lazy-element": {
+      "root": "projects/lazy-element/",
+      "sourceRoot": "projects/lazy-element/src",
+      "projectType": "application",
+      "prefix": "le",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/lazy-element",
+            "index": "projects/lazy-element/src/index.html",
+            "main": "projects/lazy-element/src/main.ts",
+            "polyfills": "projects/lazy-element/src/polyfills.ts",
+            "tsConfig": "projects/lazy-element/tsconfig.app.json",
+            "assets": [
+              "projects/lazy-element/src/favicon.ico",
+              "projects/lazy-element/src/assets"
+            ],
+            "styles": [
+              "projects/lazy-element/src/styles.css"
+            ],
+            "scripts": [],
+            "es5BrowserSupport": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/lazy-element/src/environments/environment.ts",
+                  "with": "projects/lazy-element/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "lazy-element:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "lazy-element:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "lazy-element:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/lazy-element/src/test.ts",
+            "polyfills": "projects/lazy-element/src/polyfills.ts",
+            "tsConfig": "projects/lazy-element/tsconfig.spec.json",
+            "karmaConfig": "projects/lazy-element/karma.conf.js",
+            "styles": [
+              "projects/lazy-element/src/styles.css"
+            ],
+            "scripts": [],
+            "assets": [
+              "projects/lazy-element/src/favicon.ico",
+              "projects/lazy-element/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/lazy-element/tsconfig.app.json",
+              "projects/lazy-element/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
