@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'angular-ements'`, () => {
+  it(`should have as title 'lazy-angular-elements'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('angular-ements');
+    expect(app.title).toEqual('lazy-angular-elements');
   });
 
   it('should render title in a h1 tag', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to angular-ements!');
+    expect(compiled.querySelector('h1').textContent).toContain('Welcome to lazy-angular-elements!');
   });
 });
