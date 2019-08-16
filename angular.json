@@ -62,18 +62,18 @@
         "serve": {
           "builder": "ngx-build-plus:dev-server",
           "options": {
-            "browserTarget": "lazy-element:build"
+            "browserTarget": "le:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "lazy-element:build:production"
+              "browserTarget": "le:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "lazy-element:build"
+            "browserTarget": "le:build"
           }
         },
         "test": {

@@ -3,12 +3,12 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "build:le": "ng build le --single-bundle",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e"
+    "start": "npm run start:app && npm run start:le",
+    "build": "npm run build:app && npm run build:le",
+    "start:app": "ng serve",
+    "build:app": "ng build",
+    "start:le": "npm run build:le && http-server dist/lazy-element -p 4201",
+    "build:le": "ng build --project le --single-bundle true"
   },
   "private": true,
   "dependencies": {
@@ -38,6 +38,7 @@
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
     "codelyzer": "~4.5.0",
+    "http-server": "^0.11.1",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~3.0.0",
