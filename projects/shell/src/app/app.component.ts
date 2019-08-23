@@ -7,6 +7,12 @@ import { Component, Injector } from '@angular/core';
     <div *ngIf="showLazyLoadedElement === true">
       <lazy-loaded></lazy-loaded>
     </div>
+    <div>
+      <a title="subroute" routerLink="/subroute">
+        Go to subroute
+      </a>
+    </div>
+    <router-outlet></router-outlet>
   `,
   styles: [],
 })
@@ -20,7 +26,7 @@ export class AppComponent {
   private lazyLoadedModulePath = 'http://localhost:4201/main.js';
 
   public downloadLazyModule(): void {
-    debugger;
+    // debugger;
     // window['System'].import(modulePath)
     //   .then((lazyLoadedModule) => {
     //     debugger;
@@ -36,7 +42,7 @@ export class AppComponent {
     const lazyLoadedScriptTag = document.createElement('script');
     lazyLoadedScriptTag.src = this.lazyLoadedModulePath;
     lazyLoadedScriptTag.onload = (e) => {
-      debugger;
+      // debugger;
       this.enableShowLazyLoadedElement();
       // window['System'].import(this.lazyLoadedModulePath)
       //   .then((lazyLoadedModule) => {
