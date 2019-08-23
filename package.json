@@ -3,12 +3,13 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "npm run start:app && npm run start:le",
-    "build": "npm run build:app && npm run build:le",
-    "start:app": "ng serve",
-    "build:app": "ng build",
-    "start:le": "npm run build:le && http-server dist/lazy-element -p 4201",
-    "build:le": "ng build --project le --single-bundle true"
+    "start": "concurrently \"npm:start-*\"",
+    "build": "concurrently \"npm:build-*\"",
+    "start-app": "ng serve shell --port 4200",
+    "build-app": "ng build shell",
+    "start-le": "ng serve le --port 4201 --single-bundle true",
+    "startold-le-old": "npm run build-le && http-server dist/lazy-element -p 4201",
+    "build-le": "ng build --project le --single-bundle true"
   },
   "private": true,
   "dependencies": {
@@ -38,6 +39,7 @@
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
     "codelyzer": "~4.5.0",
+    "concurrently": "^4.1.2",
     "http-server": "^0.11.1",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
@@ -48,6 +50,7 @@
     "karma-jasmine-html-reporter": "^0.2.2",
     "ng-packagr": "^4.2.0",
     "protractor": "~5.4.0",
+    "systemjs": "^5.0.0",
     "ts-node": "~7.0.0",
     "tsickle": ">=0.29.0",
     "tslib": "^1.9.0",

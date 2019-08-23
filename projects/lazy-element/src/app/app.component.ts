@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'le-root',
+  // selector: 'le-root',
   template: `
     <h1>This is {{ title }}</h1>
   `,
