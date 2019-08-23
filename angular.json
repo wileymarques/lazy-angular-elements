@@ -129,7 +129,14 @@
             "styles": [
               "projects/shell/src/styles.css"
             ],
-            "scripts": [],
+            "scripts": [
+              {
+                "input": "node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"
+              },
+              {
+                "input": "node_modules/@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js"
+              }
+            ],
             "es5BrowserSupport": true
           },
           "configurations": {

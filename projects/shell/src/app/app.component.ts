@@ -52,9 +52,9 @@ export class AppComponent {
 
   private enableShowLazyLoadedElement(): void {
     // debugger;
-    const lazyLoadedElementEl = document.createElement('lazy-loaded');
-    const wrapperEl = document.getElementById('wrapper');
-    wrapperEl.appendChild(lazyLoadedElementEl);
+    // const lazyLoadedElementEl = document.createElement('lazy-loaded');
+    // const wrapperEl = document.getElementById('wrapper');
+    // wrapperEl.appendChild(lazyLoadedElementEl);
     this.showLazyLoadedElement = true;
   }
 
