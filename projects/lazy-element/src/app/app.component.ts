@@ -4,6 +4,7 @@ import { Component } from '@angular/core';
   // selector: 'le-root',
   template: `
     <h1>This is {{ title }}</h1>
+    <le-subtitle></le-subtitle>
   `,
   styles: []
 })

@@ -3,10 +3,12 @@ import { NgModule, Injector } from '@angular/core';
 import { createCustomElement } from '@angular/elements';
 
 import { AppComponent } from './app.component';
+import { SubtitleComponent } from './subtitle/subtitle.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    SubtitleComponent,
   ],
   imports: [
     BrowserModule,
