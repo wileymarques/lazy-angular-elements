@@ -5,6 +5,10 @@ import { Component } from '@angular/core';
   template: `
     <h1>This is {{ title }}</h1>
     <le-subtitle></le-subtitle>
+    <a title="subroute" routerLink="/subroute">
+      Go to subroute
+    </a>
+    <router-outlet></router-outlet>
   `,
   styles: []
 })
